@@ -1,0 +1,25 @@
+import {Pipe, PipeTransform} from 'angular2/core';
+import {Task} from './task.model';
+
+@Pipe({
+  name: "done",
+  pure: false
+})
+export class DonePipe implements PipeTransform {
+  transform(input: Task[], args) {
+    var desiredDoneState = args[0];
+    console.log('selected task: ', args[1]);
+
+    if(desiredDoneState === "done") {
+      return input.filter(function(task) {
+        return task.done;
+      });
+    } else if (desiredDoneState === "notDone") {
+      return input.filter(function(task) {
+        return !task.done;
+      });
+    } else {
+      return input;
+    }
+  }
+}
