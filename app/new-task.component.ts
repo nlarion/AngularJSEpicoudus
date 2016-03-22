@@ -11,7 +11,7 @@ import {Task} from './task.model';
     <button (click)="addTask(newDescription)" class="btn-success btn-lg add-button">Add</button>
   </div>
   `
-})
+}) 
 export class NewTaskComponent {
   public onSubmitNewTask: EventEmitter<String>;
   constructor(){
